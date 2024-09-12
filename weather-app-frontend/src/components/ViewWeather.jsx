@@ -18,7 +18,6 @@ function ViewWeather() {
     useEffect(() => {
       fetchWeather();
     
-
     }, [])
     
 
