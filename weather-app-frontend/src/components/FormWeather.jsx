@@ -1,7 +1,6 @@
-function SearchWeather() {
+function  FormWeather() {
     return ( 
     <>
-        <h3>Ver otro clima</h3>
         <form action="">
             <label htmlFor="">Buscar</label>
             <input type="text" />
@@ -10,4 +9,4 @@ function SearchWeather() {
      );
 }
 
-export default SearchWeather;
+export default FormWeather;

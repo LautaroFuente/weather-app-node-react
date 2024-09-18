@@ -1,15 +1,20 @@
 import './App.css'
-import ViewWeather from './components/ViewWeather'
-import SearchWeather from './components/SearchWeather'
+//import ViewWeather from './components/ViewWeather'
+//import SearchWeather from './components/SearchWeather'
+import { BrowserRouter, Routes, Route } from "react-router";
+import { Home } from "./pages/Home"
 
 function App() {
 
 
   return (
     <>
-      <h1>Mira el clima!</h1>
-      <SearchWeather/>
-      <ViewWeather/>
+      <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Home />} />
+
+              </Routes>
+            </BrowserRouter>
     </>
   )
 }
