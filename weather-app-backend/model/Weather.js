@@ -10,6 +10,22 @@ const weather = {
             console.log(error);
             throw new Error("Error al conseguir los climas buscados del usuario");
         }
+    },
+
+    addWeatherFromOneUser: async (user_id, city_name, search_time) => {
+        try {
+            const query = "INSERT INTO CityTop (id, user_id, city_name, search_time) VALUES (0, ?, ?, ?);"
+            const [result] = await connection.execute(query, [
+            user_id,
+            city_name,
+            search_time,
+        ]);
+        return result;
+        } catch (error) {
+            console.log(error);
+            throw new Error("Error al agregar clima buscado al usuario");
+            
+        }
     }
 }
 
