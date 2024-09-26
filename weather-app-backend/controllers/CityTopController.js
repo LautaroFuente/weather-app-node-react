@@ -1,4 +1,5 @@
 import cityTop from "../model/CityTop";
+import { city_nameCityTopSchema } from "../schemas/cityTopSchema";
 
 export const getTop = async (req, res) =>{
     try {
@@ -15,7 +16,7 @@ export const getOneCity = async (req, res) =>{
     try {
         const { city_name } = req.params;
     
-        //validar dato
+        const result = city_nameCityTopSchema.safeParse({ city_name });
         if (result.success) {
           console.log("Validacion correcta");
           let data = await cityTop.getOneCity(city_name);
@@ -34,12 +35,12 @@ export const getOneCity = async (req, res) =>{
 export const addCity = async (req, res) =>{
     try {
         const { city_name } = req.body;
-        //validar dato
+        const result = city_nameCityTopSchema.safeParse({ city_name });
         if (result.success) {
           console.log("Validacion correcta");
           let cityExist = await cityTop.getOneCity(city_name);
           if (cityExist.length > 0) {
-            res.status(409).json({ errors: "ciudad ya registrada" });
+            res.status(409).json({ errors: "Ciudad ya registrada" });
           } else {
             let data = await cityTop.addCity(city_name);
     

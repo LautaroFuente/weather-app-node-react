@@ -1,10 +1,12 @@
 import weather from "../model/Weather";
+import { emailUserSchema } from "../schemas/userSchema";
+import { weatherSchema } from "../schemas/weatherSchema";
 
 export const getWeatherFromOneUser = async (req, res) =>{
     try {
         const { email } = req.params;
     
-        //validar dato
+        const result = emailUserSchema.safeParse({ email });
         if (result.success) {
           console.log("Validacion correcta");
           let data = await weather.getWeatherFromOneUser(email);
@@ -23,7 +25,7 @@ export const getWeatherFromOneUser = async (req, res) =>{
 export const addWeatherFromOneUser = async (req, res) =>{
     try {
         const { user_id, city_name, search_time } = req.body;
-        //validar datos
+        const result = weatherSchema.safeParse({ user_id, city_name, search_time });
         if (result.success) {
             console.log("Validacion correcta");
 

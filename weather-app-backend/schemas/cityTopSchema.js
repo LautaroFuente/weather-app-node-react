@@ -10,4 +10,8 @@ export const cityTopSchema = z.object({
       .nonnegative("El contador de búsqueda debe ser un número entero no negativo")
       .int("El contador de búsqueda debe ser un número entero"),
   });
+
+export const city_nameCityTopSchema = userSchema.pick({
+  city_name: true,
+});  
   

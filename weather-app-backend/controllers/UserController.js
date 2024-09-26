@@ -1,4 +1,5 @@
 import user from "../model/User";
+import { emailUserSchema, userSchema } from "../schemas/userSchema";
 
 export const getAllUsers = async (req, res) =>{
     try {
@@ -15,7 +16,7 @@ export const getOneUser = async (req, res) =>{
     try {
         const { email } = req.params;
     
-        //validar dato
+        const result = emailUserSchema.safeParse({ email });
         if (result.success) {
           console.log("Validacion correcta");
           let data = await user.getOneUser(email);
@@ -35,7 +36,7 @@ export const getPasswordFromOneUser = async (req, res) =>{
     try {
         const { email } = req.params;
     
-        //validar dato
+        const result = emailUserSchema.safeParse({ email });
         if (result.success) {
           console.log("Validacion correcta");
           let data = await user.getPasswordFromOneUser(email)
@@ -54,7 +55,7 @@ export const getPasswordFromOneUser = async (req, res) =>{
 export const addUser = async (req, res) =>{
     try {
         const { username, email, password } = req.body;
-        //validat datos
+        const result = userSchema.safeParse({ username, email, password });
         if (result.success) {
           console.log("Validacion correcta");
           let userExist = await user.getOneUser(email);

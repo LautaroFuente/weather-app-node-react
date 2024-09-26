@@ -5,21 +5,24 @@ import CityTop from './pages/CityTop';
 import History from './pages/History';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import { UserProvider } from './contexts/userContext';
 
 function App() {
 
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/city-top" element={<CityTop />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+      <UserProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/city-top" element={<CityTop />} />
+            <Route path="/history" element={<History />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </BrowserRouter>
+      </UserProvider>  
     </>
   )
 }
