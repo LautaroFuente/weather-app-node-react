@@ -4,7 +4,7 @@ import express from "express";
 import morgan from "morgan";
 import path from "path";
 import authRoutes from "./routes/authRoutes.js";
-import cityRoutes from "./routes/cityRoutes.js";
+import cityTopRoutes from "./routes/cityTopRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import weatherRoutes from "./routes/weatherRoutes.js";
 
@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/auth", authRoutes);
-app.use("/api/city", cityRoutes);
+app.use("/api/city", cityTopRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/weather", weatherRoutes);
 
