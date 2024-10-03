@@ -1,7 +1,7 @@
 function Footer() {
     return ( 
         <footer>
-            <p>Pie de pagina</p>
+            <p>Lautaro Fuente</p>
         </footer>
      );
 }

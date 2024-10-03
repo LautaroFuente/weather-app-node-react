@@ -7,10 +7,8 @@ export const initialUser = {
 
 export const userReducer = ( state, action ) => {
     switch (action.type) {
-        case "":
-            
-            break;
-    
+        case "RESET":
+            return initialUser;    
         default:
             return state;
     }

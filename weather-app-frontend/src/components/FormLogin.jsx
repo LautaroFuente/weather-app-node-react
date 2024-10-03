@@ -1,4 +1,21 @@
+import { useForm } from "../hooks/useForm";
+
+const initialForm = {
+    username: "",
+    email: "",
+    password: "",
+}
+
 function FormLogin() {
+    const {
+        form,
+        errorForm,
+        handleInputChange,
+        handleErrorForm,
+        resetForm,
+        resetErrorForm,
+    } = useForm(initialForm);
+
     return ( 
         <>
             <form action="">
