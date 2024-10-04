@@ -28,49 +28,48 @@ function FormRegister() {
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        const result = userSchema.safeParse(form);
-        if(result.success){
-            try {
-                console.log(`Validacion correcta`);
-                const data = await fetchGeneric(
-                  urlRegister,
-                  "POST",
-                  {
-                    "Content-Type": "application/json",
-                  },
-                  JSON.stringify(form)
-                );
-        
-                if (data == null) {
-                  throw new Error("Error al agregar");
-                }
-                if (data == "Error ya registrado") {
-                  throw new Error("Error ya registrado");
-                }
-        
-                console.log("Agregado con exito:", data);
-                resetForm();
-                resetErrorForm();
-                navigate("/login");
-              } catch (error) {
-                console.error(error.message);
-                resetForm();
-                resetErrorForm();
-                if(error.message == "Error ya registrado") {
-                  setFormErrorServer(error.message);
-                } else {
-                  setFormErrorServer("Error con el servidor");
-                }
-              }            
-        }else{
-            console.log("Error de validacion");
-            console.log(`Falla validacion `);
-            const errors = result.error.errors;
-            errors.forEach((error) => {
-            handleErrorForm(error.path, error.message);
-            });
-        }
+      e.preventDefault();
+      const result = userSchema.safeParse(form);
+      if(result.success){
+          try {
+              console.log(`Validacion correcta`);
+              const data = await fetchGeneric(
+                urlRegister,
+                "POST",
+                {
+                  "Content-Type": "application/json",
+                },
+                JSON.stringify(form)
+              );
+      
+              if (data == null) {
+                throw new Error("Error al registar");
+              }
+              if (data == "Error ya registrado") {
+                throw new Error("Error ya registrado");
+              }
+      
+              console.log("Agregado con exito:", data);
+              resetForm();
+              resetErrorForm();
+              navigate("/login");
+            } catch (error) {
+              console.error(error.message);
+              resetForm();
+              resetErrorForm();
+              if(error.message == "Error ya registrado") {
+                setFormErrorServer(error.message);
+              } else {
+                setFormErrorServer("Error con el servidor");
+              }
+            }            
+      }else{
+          console.log("Error de validacion");
+          const errors = result.error.errors;
+          errors.forEach((error) => {
+          handleErrorForm(error.path, error.message);
+          });
+      }
 
     }
 
@@ -81,7 +80,7 @@ function FormRegister() {
                 <input type="text" value={form.username} onChange={handleInputChange} name="username" id="username"/>
                 {errorForm.username && <ErrorMessage message={errorForm.username}></ErrorMessage>}
                 <label htmlFor="email">Email</label>
-                <input type="text" value={form.username} onChange={handleInputChange} name="email" id="email"/>
+                <input type="text" value={form.email} onChange={handleInputChange} name="email" id="email"/>
                 {errorForm.email && <ErrorMessage message={errorForm.email}></ErrorMessage>}
                 <label htmlFor="password">Contraseña</label>
                 <input type="text" value={form.password} onChange={handleInputChange} name="password" id="password"/>

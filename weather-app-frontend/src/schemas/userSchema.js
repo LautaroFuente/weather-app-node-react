@@ -19,3 +19,8 @@ export const emailUserSchema = userSchema.pick({
 export const passwordUserSchema = userSchema.pick({
     password: true,
 });
+
+export const loginUserSchema = userSchema.pick({
+  email: true,
+  password: true,
+});

@@ -8,7 +8,7 @@ const params = {
 };
 const url = "https://api.open-meteo.com/v1/forecast";
 
-function ViewWeather() {
+function ViewWeather({weather}) {
 
     const fetchWeather = async () =>{
         const responses = await fetchWeatherApi(url, params);
@@ -23,6 +23,7 @@ function ViewWeather() {
 
     return ( <>
         <h1>Clima</h1>
+        <p>{weather}</p>
     </> );
 }
 

@@ -7,8 +7,14 @@ export const initialUser = {
 
 export const userReducer = ( state, action ) => {
     switch (action.type) {
+
         case "RESET":
-            return initialUser;    
+            return initialUser;
+
+        case "SET_USER":{
+            return action.payload;
+        }        
+
         default:
             return state;
     }
