@@ -5,7 +5,7 @@ import CityTop from './pages/CityTop';
 import History from './pages/History';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import { UserProvider } from './contexts/userContext';
+import { UserProvider } from './contexts/UserContext';
 
 function App() {
 

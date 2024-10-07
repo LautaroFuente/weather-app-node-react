@@ -1,6 +1,5 @@
 import { useForm } from "../hooks/useForm";
 import { useState } from "react";
-import { fetchGeneric } from "../helpers/fetchGeneric";
 import ErrorMessage from "./ErrorMessage";
 import { citySearchSchema } from "../schemas/citySearchSchema";
 import { ViewWeather } from "../components/ViewWeather";
@@ -32,13 +31,7 @@ function  FormWeather() {
         if(result.success){
             try {
                 console.log(`Validacion correcta`);
-                const data = await fetchGeneric(
-                    urlWeather,
-                  "GET",
-                  {
-                    "Content-Type": "application/json",
-                  }
-                );
+                const data = await fetch(urlWeather);
                 setWeather(data);
                 resetForm();
                 resetErrorForm();

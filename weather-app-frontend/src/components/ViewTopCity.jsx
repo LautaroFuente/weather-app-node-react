@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { fetchGeneric } from "../helpers/fetchGeneric";
+import CityInTopList from "./CityInTopList";
 
 function ViewTopCity() {
     const [top, setTop] = useState(null);
     const [error, setError] = useState({state: false, message: ""});
 
-    const urlTopCity = "http://localhost:3000/api/city-top";
+    const urlTopCity = "http://localhost:3000/api/city/";
 
     useEffect(() => {
       fetchTopCity();
@@ -32,7 +33,9 @@ function ViewTopCity() {
 
     return ( 
         <>
-            <div>{top}</div>
+            {top.forEach(city => {
+              <CityInTopList data={city}/>
+            })}
             {error.state && <p>{error.message}</p>}
         </>
      );
