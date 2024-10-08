@@ -1,21 +1,28 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { fetchGeneric } from "../helpers/fetchGeneric";
+import { UserContext } from "../contexts/UserContext";
 
 function ViewHistory() {
     const [history, setHistory] = useState(null);
     const [error, setError] = useState({state: false, message: ""});
 
-    const urlHistory = "http://localhost:3000/api/";
+    const {stateUser} = useContext(UserContext);
+
+    const { token } = stateUser;
+
+    const urlHistory = "http://localhost:3000/api/weather/";
 
     useEffect(() => {
       fetchHistory();
     
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const fetchHistory = async () =>{
         try {
             const data = await fetchGeneric(urlHistory, "GET", {
               "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
             });
       
             if (data == null) {

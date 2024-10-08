@@ -3,18 +3,21 @@ import { useState } from "react";
 import ErrorMessage from "./ErrorMessage";
 import { citySearchSchema } from "../schemas/citySearchSchema";
 import { ViewWeather } from "../components/ViewWeather";
+//import { fetchWeatherApi } from 'openmeteo';
 
 const initialForm = {
     city: "",
     country: "",
 }
 
-const urlWeather = "";
+
+
+const urlWeather = "https://api.open-meteo.com/v1/forecast";
 
 function  FormWeather() {
 
     const [formErrorServer, setFormErrorServer] = useState("");
-    const [weather, setWeather] = useState();
+    const [weather, setWeather] = useState(null);
 
     const {
         form,

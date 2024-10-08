@@ -1,6 +1,6 @@
 function CityInTopList({data}) {
     return ( 
-            <p>{data.city_name}</p>
+            <h4>{data.city_name}</h4>
      );
 }
 
