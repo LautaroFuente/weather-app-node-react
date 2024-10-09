@@ -3,16 +3,14 @@ import { useState } from "react";
 import ErrorMessage from "./ErrorMessage";
 import { citySearchSchema } from "../schemas/citySearchSchema";
 import { ViewWeather } from "../components/ViewWeather";
-//import { fetchWeatherApi } from 'openmeteo';
+import { fetchGeneric } from "../helpers/fetchGeneric";
 
 const initialForm = {
     city: "",
     country: "",
 }
 
-
-
-const urlWeather = "https://api.open-meteo.com/v1/forecast";
+const urlSearch = "";
 
 function  FormWeather() {
 
@@ -34,8 +32,20 @@ function  FormWeather() {
         if(result.success){
             try {
                 console.log(`Validacion correcta`);
-                const data = await fetch(urlWeather);
+                const data = await fetchGeneric(
+                    urlSearch,
+                    "POST",
+                    {
+                      "Content-Type": "application/json",
+                    },
+                    JSON.stringify(form)
+                  );
+          
+                  if (data == null) {
+                    throw new Error("Error al realizar la busqueda");
+                  }
                 setWeather(data);
+                console.log(data);
                 resetForm();
                 resetErrorForm();
               } catch (error) {

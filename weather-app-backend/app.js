@@ -7,6 +7,7 @@ import authRoutes from "./routes/authRoutes.js";
 import cityTopRoutes from "./routes/cityTopRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import weatherRoutes from "./routes/weatherRoutes.js";
+import searchRoutes from "./routes/searchRoutes.js"
 
 const __dirname = path.resolve();
 const app = express();
@@ -25,6 +26,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/city", cityTopRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/weather", weatherRoutes);
+app.use("/api/search", searchRoutes)
 
 app.get("*", (req, res) => {
   res.sendFile(
