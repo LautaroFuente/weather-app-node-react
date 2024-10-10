@@ -1,5 +1,5 @@
-import user from "../model/User";
-import { emailUserSchema, userSchema } from "../schemas/userSchema";
+import user from "../model/User.js";
+import { emailUserSchema, userSchema } from "../schemas/userSchema.js";
 
 export const getAllUsers = async (req, res) =>{
     try {

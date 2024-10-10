@@ -1,4 +1,4 @@
-import { connection } from "../configuration/DatabaseConnection";
+import { connection } from "../configuration/DatabaseConnection.js";
 
 const cityTop = {
 

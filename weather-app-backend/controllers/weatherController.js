@@ -1,6 +1,6 @@
-import weather from "../model/Weather";
-import { emailUserSchema } from "../schemas/userSchema";
-import { weatherSchema } from "../schemas/weatherSchema";
+import weather from "../model/Weather.js";
+import { emailUserSchema } from "../schemas/userSchema.js";
+import { weatherSchema } from "../schemas/weatherSchema.js";
 
 export const getWeatherFromOneUser = async (req, res) =>{
     try {

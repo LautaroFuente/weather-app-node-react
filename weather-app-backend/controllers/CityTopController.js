@@ -1,5 +1,5 @@
-import cityTop from "../model/CityTop";
-import { city_nameCityTopSchema } from "../schemas/cityTopSchema";
+import cityTop from "../model/CityTop.js";
+import { city_nameCityTopSchema } from "../schemas/cityTopSchema.js";
 
 export const getTop = async (req, res) =>{
     try {

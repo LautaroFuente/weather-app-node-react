@@ -1,6 +1,6 @@
 import express from "express";
-import { getWeatherFromOneUser, addWeatherFromOneUser } from "../controllers/weatherController";
-import checkToken from "../middleware/checkToken";
+import { getWeatherFromOneUser, addWeatherFromOneUser } from "../controllers/weatherController.js";
+import checkToken from "../middleware/checkToken.js";
 
 const router = express.Router();
 
