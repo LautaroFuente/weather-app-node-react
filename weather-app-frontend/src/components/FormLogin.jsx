@@ -88,14 +88,20 @@ function FormLogin() {
             {userNotRegistered.state && (
                 <ErrorMessage message={userNotRegistered.message}></ErrorMessage>
             )}
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Email</label>
-                <input type="text" value={form.email} onChange={handleInputChange} name="email" id="email"/>
+            <form className="form form-login" onSubmit={handleSubmit}>
+                <div className="form-row">
+                    <label htmlFor="email">Email</label>
+                    <input type="text" value={form.email} onChange={handleInputChange} name="email" id="email"/>
+                </div>    
                 {errorForm.email && <ErrorMessage message={errorForm.email}></ErrorMessage>}
-                <label htmlFor="password">Contraseña</label>
-                <input type="text" value={form.password} onChange={handleInputChange} name="password" id="password"/>
+                <div className="form-row">
+                    <label htmlFor="password">Contraseña</label>
+                    <input type="text" value={form.password} onChange={handleInputChange} name="password" id="password"/>
+                </div>    
                 {errorForm.password && <ErrorMessage message={errorForm.password}></ErrorMessage>}
-                <button type="submit">Ingresar</button>
+                <div className="form-row">
+                    <button type="submit">Ingresar</button>
+                </div>    
             </form>
             {formErrorServer && <ErrorMessage message={formErrorServer}></ErrorMessage>}
         </>

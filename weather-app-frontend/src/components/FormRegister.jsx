@@ -75,17 +75,25 @@ function FormRegister() {
 
     return ( 
         <>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Nombre de usuario</label>
-                <input type="text" value={form.username} onChange={handleInputChange} name="username" id="username"/>
+            <form className="form form-register" onSubmit={handleSubmit}>
+                <div className="form-row">
+                  <label htmlFor="username">Nombre de usuario</label>
+                  <input type="text" value={form.username} onChange={handleInputChange} name="username" id="username"/>
+                </div>
                 {errorForm.username && <ErrorMessage message={errorForm.username}></ErrorMessage>}
-                <label htmlFor="email">Email</label>
-                <input type="text" value={form.email} onChange={handleInputChange} name="email" id="email"/>
+                <div className="form-row">
+                  <label htmlFor="email">Email</label>
+                  <input type="text" value={form.email} onChange={handleInputChange} name="email" id="email"/>
+                </div>
                 {errorForm.email && <ErrorMessage message={errorForm.email}></ErrorMessage>}
-                <label htmlFor="password">Contraseña</label>
-                <input type="text" value={form.password} onChange={handleInputChange} name="password" id="password"/>
+                <div className="form-row">
+                  <label htmlFor="password">Contraseña</label>
+                  <input type="text" value={form.password} onChange={handleInputChange} name="password" id="password"/>
+                </div>
                 {errorForm.password && <ErrorMessage message={errorForm.password}></ErrorMessage>}
-                <button type="submit">Registrarse</button>
+                <div className="form-row">
+                  <button type="submit">Registrarse</button>
+                </div>
             </form>
             {formErrorServer && <ErrorMessage message={formErrorServer}></ErrorMessage>}
         </>

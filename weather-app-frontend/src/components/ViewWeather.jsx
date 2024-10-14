@@ -1,7 +1,5 @@
 function ViewWeather({weather}) {
 
-    
-
     return ( <>
         <h1>Clima</h1>
         { weather != null ? 

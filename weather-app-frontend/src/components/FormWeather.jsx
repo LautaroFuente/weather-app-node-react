@@ -66,14 +66,20 @@ function  FormWeather() {
 
     return ( 
     <>
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="city">Ciudad</label>
-            <input type="text" value={form.city} onChange={handleInputChange} name="city" id="city"/>
+        <form className="form form-search-weather" onSubmit={handleSubmit}>
+            <div className="form-row">
+              <label htmlFor="city">Ciudad</label>
+              <input type="text" value={form.city} onChange={handleInputChange} name="city" id="city"/>
+            </div>
             {errorForm.email && <ErrorMessage message={errorForm.email}></ErrorMessage>}
-            <label htmlFor="country">Pais</label>
-            <input type="text" value={form.country} onChange={handleInputChange} name="country" id="country"/>
+            <div className="form-row">
+              <label htmlFor="country">Pais</label>
+              <input type="text" value={form.country} onChange={handleInputChange} name="country" id="country"/>
+            </div>
             {errorForm.email && <ErrorMessage message={errorForm.email}></ErrorMessage>}
-            <button type="submit">Buscar</button>
+            <div className="form-row">
+              <button type="submit">Buscar</button>
+            </div>
         </form>
         {formErrorServer && <ErrorMessage message={formErrorServer}></ErrorMessage>}
         <ViewWeather weather={weather} />

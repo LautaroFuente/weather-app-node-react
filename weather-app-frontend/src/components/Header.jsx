@@ -13,14 +13,14 @@ function Header() {
 
     return ( 
         <nav>
-            <ul>
+            <ul className='menu'>
                 <li><NavLink to="/">Buscar clima</NavLink></li>
                 <li><NavLink to="/history">Historial</NavLink></li>
                 <li><NavLink to="/city-top">Mas buscadas</NavLink></li>
             </ul>
-            <div>
+            <div className='btn-session'>
                 {token ? <button onClick={closeSession}>Cerrar Sesion</button> 
-                :<div>
+                :<div className='no-session'>
                     <NavLink to="/register">Registrarse</NavLink>
                     <NavLink to="/login">Iniciar Sesion</NavLink>
                 </div>}
