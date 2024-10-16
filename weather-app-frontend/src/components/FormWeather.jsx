@@ -2,7 +2,7 @@ import { useForm } from "../hooks/useForm";
 import { useState } from "react";
 import ErrorMessage from "./ErrorMessage";
 import { citySearchSchema } from "../schemas/citySearchSchema";
-import { ViewWeather } from "../components/ViewWeather";
+import ViewWeather from "../components/ViewWeather";
 import { fetchGeneric } from "../helpers/fetchGeneric";
 
 const initialForm = {

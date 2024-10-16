@@ -1,6 +1,6 @@
-import { Header } from "../components/Header"
-import { Footer } from "../components/Footer"
-import { ViewHistory } from "../components/ViewHistory"
+import Header from "../components/Header"
+import Footer from "../components/Footer"
+import ViewHistory from "../components/ViewHistory"
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { NavLink } from 'react-router-dom';

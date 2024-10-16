@@ -1,6 +1,6 @@
-import { Header } from "../components/Header"
-import { Footer } from "../components/Footer"
-import { ViewTopCity } from "../components/ViewTopCity"
+import Header from "../components/Header"
+import Footer from "../components/Footer"
+import ViewTopCity from "../components/ViewTopCity"
 
 function CityTop() {
     return ( 

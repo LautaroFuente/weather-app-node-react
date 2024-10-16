@@ -1,6 +1,6 @@
-import { Header } from "../components/Header"
-import { Footer } from "../components/Footer"
-import { FormLogin } from "../components/FormLogin"
+import Header from "../components/Header"
+import Footer from "../components/Footer"
+import FormLogin from "../components/FormLogin"
 
 function Login() {
     return ( 

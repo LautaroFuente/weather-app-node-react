@@ -1,6 +1,6 @@
-import { Header } from "../components/Header"
-import { Footer } from "../components/Footer"
-import { FormWeather } from "../components/FormWeather"
+import Header from "../components/Header"
+import Footer from "../components/Footer"
+import FormWeather from "../components/FormWeather"
 import { useContext } from "react"
 import { UserContext } from "../contexts/UserContext.jsx"
 
