@@ -40,7 +40,8 @@ export const addCity = async (req, res) =>{
           console.log("Validacion correcta");
           let cityExist = await cityTop.getOneCity(city_name);
           if (cityExist.length > 0) {
-            res.status(409).json({ errors: "Ciudad ya registrada" });
+            await cityTop.updateCountCity(city_name);
+            res.status(200).json({ message: "Ciudad ya registrada, contador actualizado" });
           } else {
             let data = await cityTop.addCity(city_name);
     

@@ -8,7 +8,7 @@ function ViewHistory() {
 
     const {stateUser} = useContext(UserContext);
 
-    const { token } = stateUser;
+    const { token, email } = stateUser;
 
     const urlHistory = "http://localhost:3000/api/weather/";
 
@@ -20,7 +20,7 @@ function ViewHistory() {
 
     const fetchHistory = async () =>{
         try {
-            const data = await fetchGeneric(urlHistory, "GET", {
+            const data = await fetchGeneric(`${urlHistory}${email}`, "GET", {
               "Content-Type": "application/json",
               Authorization: `Bearer ${token}`,
             });
@@ -39,10 +39,19 @@ function ViewHistory() {
 
     return ( 
         <>
-            {history.forEach(weather => {
-              <div>{weather}</div>
-            })}
-            {error.state && <p>{error.message}</p>}
+          {history != null ?
+            <div>
+              {history.map(weather => (
+                <div key={weather}>{weather}</div>
+              ))}
+              {error.state && <p>{error.message}</p>}
+            </div>
+          :
+            <div>
+              No hay climas buscados
+              {error.state && <p>{error.message}</p>}
+            </div>
+          }
         </>
      );
 }

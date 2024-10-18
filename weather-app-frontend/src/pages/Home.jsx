@@ -5,9 +5,9 @@ import { useContext } from "react"
 import { UserContext } from "../contexts/UserContext.jsx"
 
 function Home() {
-    const {stateUser } = useContext(UserContext);
+    const {stateUser } = useContext(UserContext) || {};
 
-    const { username, token } = stateUser;
+    const { username, token } = stateUser || {};
     return ( 
         <>
             <Header />

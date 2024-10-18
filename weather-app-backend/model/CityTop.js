@@ -27,12 +27,23 @@ const cityTop = {
 
     addCity: async (city_name) => {
         try {
-            const query = "INSERT INTO CityTop (city_name, search_count) VALUES (?, 0);"
+            const query = "INSERT INTO CityTop (city_name, search_count) VALUES (?, 1);"
             const [result] = await connection.execute(query, [city_name]);
             return result;
         } catch (error) {
             console.log(error);
             throw new Error("Error al agregar la ciudad");             
+        }
+    },
+
+    updateCountCity: async (city_name) => {
+        try {
+            const query = "UPDATE CityTop SET search_count = search_count + 1 WHERE city_name = ?;"
+            const [result] = await connection.execute(query, [city_name]);
+            return result;
+        } catch (error) {
+            console.log(error);
+            throw new Error("Error al actualizar contador de la ciudad");             
         }
     }
 }

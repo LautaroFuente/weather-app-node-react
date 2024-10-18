@@ -4,7 +4,7 @@ import checkToken from "../middleware/checkToken.js";
 
 const router = express.Router();
 
-router.get("/", checkToken, getWeatherFromOneUser);
+router.get("/:email", checkToken, getWeatherFromOneUser);
 router.post("/", checkToken, addWeatherFromOneUser);
 
 export default router;

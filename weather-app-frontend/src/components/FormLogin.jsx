@@ -11,7 +11,7 @@ const initialForm = {
     password: "",
 }
 
-const urlLogin = "";
+const urlLogin = "http://localhost:3000/api/auth";
 
 function FormLogin() {
 
@@ -35,7 +35,7 @@ function FormLogin() {
         if(result.success){
             try {
                 console.log(`Validacion correcta`);
-                const data = await fetchGeneric(
+                const response = await fetchGeneric(
                   urlLogin,
                   "POST",
                   {
@@ -44,21 +44,21 @@ function FormLogin() {
                   JSON.stringify(form)
                 );
         
-                if (data == null) {
+                if (response == null) {
                   throw new Error("Error al iniciar sesion");
                 }
-
-                const { token, user } = data;
-            if (data.error) {
+                
+                const { token, data } = response;
+            if (data.status === 404) {
                 setUserNotRegistered({ state: true, message: data.error });
             } else {
                 console.log("Inicio de sesion exitoso");
                 dispatchUser({
                     type:"SET_USER",
                     payload:{
-                        id: user[0].id,
-                        username: user[0].username,
-                        email: user[0].email,
+                        id: data[0].id,
+                        username: data[0].username,
+                        email: data[0].email,
                         token,
                     }
                 })
@@ -68,7 +68,7 @@ function FormLogin() {
                 resetErrorForm();
                 navigate("/");
               } catch (error) {
-                console.error(error.message);
+                console.log(error.message);
                 resetForm();
                 resetErrorForm();
                 setFormErrorServer("Error con el servidor");
@@ -91,12 +91,12 @@ function FormLogin() {
             <form className="form form-login" onSubmit={handleSubmit}>
                 <div className="form-row">
                     <label htmlFor="email">Email</label>
-                    <input type="text" value={form.email} onChange={handleInputChange} name="email" id="email"/>
+                    <input type="text" value={form.email} onChange={handleInputChange} name="email" id="email" required/>
                 </div>    
                 {errorForm.email && <ErrorMessage message={errorForm.email}></ErrorMessage>}
                 <div className="form-row">
                     <label htmlFor="password">Contraseña</label>
-                    <input type="text" value={form.password} onChange={handleInputChange} name="password" id="password"/>
+                    <input type="password" value={form.password} onChange={handleInputChange} name="password" id="password" required/>
                 </div>    
                 {errorForm.password && <ErrorMessage message={errorForm.password}></ErrorMessage>}
                 <div className="form-row">

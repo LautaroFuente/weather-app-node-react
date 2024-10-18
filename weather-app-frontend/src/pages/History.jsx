@@ -7,8 +7,8 @@ import { NavLink } from 'react-router-dom';
 
 function History() {
 
-    const {stateUser} = useContext(UserContext);
-    const { token } = stateUser;
+    const {stateUser} = useContext(UserContext) || {};
+    const { token } = stateUser || {};
 
     return ( 
         <>

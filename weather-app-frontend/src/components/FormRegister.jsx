@@ -11,7 +11,7 @@ const initialForm = {
     password: "",
 }
 
-const urlRegister = "";
+const urlRegister = "http://localhost:3000/api/user";
 
 function FormRegister() {
     const {
@@ -78,17 +78,17 @@ function FormRegister() {
             <form className="form form-register" onSubmit={handleSubmit}>
                 <div className="form-row">
                   <label htmlFor="username">Nombre de usuario</label>
-                  <input type="text" value={form.username} onChange={handleInputChange} name="username" id="username"/>
+                  <input type="text" value={form.username} onChange={handleInputChange} name="username" id="username" required/>
                 </div>
                 {errorForm.username && <ErrorMessage message={errorForm.username}></ErrorMessage>}
                 <div className="form-row">
                   <label htmlFor="email">Email</label>
-                  <input type="text" value={form.email} onChange={handleInputChange} name="email" id="email"/>
+                  <input type="text" value={form.email} onChange={handleInputChange} name="email" id="email" required/>
                 </div>
                 {errorForm.email && <ErrorMessage message={errorForm.email}></ErrorMessage>}
                 <div className="form-row">
                   <label htmlFor="password">Contraseña</label>
-                  <input type="text" value={form.password} onChange={handleInputChange} name="password" id="password"/>
+                  <input type="password" value={form.password} onChange={handleInputChange} name="password" id="password" required/>
                 </div>
                 {errorForm.password && <ErrorMessage message={errorForm.password}></ErrorMessage>}
                 <div className="form-row">

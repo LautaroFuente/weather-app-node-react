@@ -20,7 +20,7 @@ export const loginUser = async (req, res) => {
       console.log("Validacion correcta");
       let data = await user.getPasswordFromOneUser(email);
       if (data.length === 0) {
-        return res.status(200).json({ error: "Usuario no registrado" });
+        return res.status(404).json({ error: "Usuario no registrado" });
       }
       const match = await checkPassword(
         data[0].password,
@@ -34,7 +34,7 @@ export const loginUser = async (req, res) => {
         });
         res.status(200).json({ token, data });
       } else {
-        res.status(200).json({ error: "Contraseña incorrecta" });
+        res.status(401).json({ error: "Contraseña incorrecta" });
       }
     } else {
       console.error("Errores de validacion");

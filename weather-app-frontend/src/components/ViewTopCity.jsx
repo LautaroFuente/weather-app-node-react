@@ -22,6 +22,7 @@ function ViewTopCity() {
             if (data == null) {
               throw new Error("Error al cargar el top de ciudades");
             }
+            console.log(data);
             setTop(data);
             setError({ state: false, message: "" });
           } catch (error) {
@@ -32,12 +33,22 @@ function ViewTopCity() {
     
 
     return ( 
-        <>
-            {top.forEach(city => {
-              <CityInTopList data={city}/>
-            })}
-            {error.state && <p>{error.message}</p>}
-        </>
+      <>
+      {top != null ?
+        <div>
+          {top.map(city => (
+            <CityInTopList key={city.city_name} data={city} />
+          ))}
+          {error.state && <p>{error.message}</p>}
+        </div>
+      :
+        <div>
+          No hay ciudades buscadas
+          {error.state && <p>{error.message}</p>}
+        </div>
+      }
+
+      </>
      );
 }
 

@@ -4,8 +4,8 @@ import { UserContext } from "../contexts/UserContext.jsx"
 
 function Header() {
 
-    const { stateUser, dispatchUser } = useContext(UserContext);
-    const { token } = stateUser;
+    const { stateUser, dispatchUser } = useContext(UserContext) || {};
+    const { token } = stateUser || {};
 
     const closeSession = () => {
         dispatchUser({ type: "RESET"});
