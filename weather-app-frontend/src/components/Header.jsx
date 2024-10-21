@@ -19,7 +19,7 @@ function Header() {
                 <li><NavLink to="/city-top">Mas buscadas</NavLink></li>
             </ul>
             <div className='btn-session'>
-                {token ? <button onClick={closeSession}>Cerrar Sesion</button> 
+                {token ? <button className="btn-close-session" onClick={closeSession}>Cerrar Sesion</button> 
                 :<div className='no-session'>
                     <NavLink to="/register">Registrarse</NavLink>
                     <NavLink to="/login">Iniciar Sesion</NavLink>

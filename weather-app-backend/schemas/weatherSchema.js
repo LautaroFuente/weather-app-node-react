@@ -9,8 +9,5 @@ export const weatherSchema = z.object({
       .string()
       .max(255, "El campo no puede tener más de 255 caracteres")
       .regex(/^[a-zA-Z\s]+$/, "El nombre de la ciudad solo puede contener letras y espacios"),
-    search_time: z
-      .string()
-      .regex(/^\d{2}\/\d{2}\/\d{4}$/, "El formato de fecha debe ser DD/MM/YYYY"),
   });
   

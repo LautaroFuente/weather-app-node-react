@@ -24,12 +24,12 @@ export const getWeatherFromOneUser = async (req, res) =>{
 
 export const addWeatherFromOneUser = async (req, res) =>{
     try {
-        const { user_id, city_name, search_time } = req.body;
-        const result = weatherSchema.safeParse({ user_id, city_name, search_time });
+        const { user_id, city_name } = req.body;
+        const result = weatherSchema.safeParse({ user_id, city_name });
         if (result.success) {
             console.log("Validacion correcta");
 
-            let data = await weather.addWeatherFromOneUser(user_id, city_name, search_time);
+            let data = await weather.addWeatherFromOneUser(user_id, city_name);
     
             res.status(201).json(data);
         } else {

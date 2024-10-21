@@ -1,4 +1,6 @@
-function ViewWeather({weather}) {
+import { selectImage } from "../helpers/selectImage";
+
+function ViewWeather({weather, country}) {
 
     return ( 
         <>
@@ -6,7 +8,10 @@ function ViewWeather({weather}) {
             {weather != null ? (
                 <div>
                     <h3>{weather.name}</h3>
-                    <h4>{weather.sys.country}</h4>
+                    <h4>{country}</h4>
+                    <div className="container-image">
+                        <img src={selectImage(weather.weather[0].description)} alt="Clima" />
+                    </div>
                     <h3>Clima: {weather.weather[0].description}</h3>
                     <h3>Temperatura: {weather.main.temp} °C</h3>
                     <h4>Min: {weather.main.temp_min} °C | Max: {weather.main.temp_max} °C</h4>

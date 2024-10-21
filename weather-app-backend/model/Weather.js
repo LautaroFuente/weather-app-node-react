@@ -3,7 +3,7 @@ import { connection } from "../configuration/DatabaseConnection.js";
 const weather = {
     getWeatherFromOneUser: async (email) =>{
         try {
-            const query = "SELECT u.username, w.city_name, w.search_time FROM Weather w INNER JOIN User u ON(w.user_id = u.id) WHERE u.email = ?;";
+            const query = "SELECT w.id, u.username, w.city_name, w.search_time FROM Weather w INNER JOIN User u ON(w.user_id = u.id) WHERE u.email = ?;";
             const [result] = await connection.execute(query, [email]);
             return result;
         } catch (error) {
@@ -14,11 +14,14 @@ const weather = {
 
     addWeatherFromOneUser: async (user_id, city_name, search_time) => {
         try {
-            const query = "INSERT INTO CityTop (id, user_id, city_name, search_time) VALUES (0, ?, ?, ?);"
+            const search_time = new Date();
+            const searchTime = search_time.toISOString().slice(0, 19).replace('T', ' ');
+
+            const query = "INSERT INTO weather (id, user_id, city_name, search_time) VALUES (0, ?, ?, ?);"
             const [result] = await connection.execute(query, [
             user_id,
             city_name,
-            search_time,
+            searchTime,
         ]);
         return result;
         } catch (error) {

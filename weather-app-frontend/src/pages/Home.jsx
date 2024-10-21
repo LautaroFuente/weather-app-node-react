@@ -14,7 +14,6 @@ function Home() {
             <h1>Busca el clima</h1>
             {token && <h3>Bienvenido: {username}</h3>}
             <FormWeather />
-            {token && <button className="btn-close-session">Cerrar sesion</button>}
             <Footer />        
         </>
      );

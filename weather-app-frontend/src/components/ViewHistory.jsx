@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { fetchGeneric } from "../helpers/fetchGeneric";
 import { UserContext } from "../contexts/UserContext";
+import OneWeatherFromHistory from "./OneWeatherFromHistory";
 
 function ViewHistory() {
     const [history, setHistory] = useState(null);
@@ -40,9 +41,9 @@ function ViewHistory() {
     return ( 
         <>
           {history != null ?
-            <div>
+            <div className="container-history">
               {history.map(weather => (
-                <div key={weather}>{weather}</div>
+                <OneWeatherFromHistory key={weather.id} weather={weather}/>
               ))}
               {error.state && <p>{error.message}</p>}
             </div>

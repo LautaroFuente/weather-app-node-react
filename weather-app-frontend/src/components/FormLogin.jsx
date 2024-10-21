@@ -31,6 +31,7 @@ function FormLogin() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        resetErrorForm();
         const result = loginUserSchema.safeParse(form);
         if(result.success){
             try {
@@ -43,15 +44,20 @@ function FormLogin() {
                   },
                   JSON.stringify(form)
                 );
-        
+                
                 if (response == null) {
                   throw new Error("Error al iniciar sesion");
                 }
-                
-                const { token, data } = response;
-            if (data.status === 404) {
-                setUserNotRegistered({ state: true, message: data.error });
+            if (response.error == "Usuario no registrado") {
+                setUserNotRegistered({ state: true, message: response.error });
+                console.log("Usuario no registrado");
+                resetForm();
+            } else if (response.error == "Contraseña incorrecta") {
+                    setUserNotRegistered({ state: true, message: response.error });
+                    console.log("Contraseña incorrecta");
+                    resetForm();    
             } else {
+                const { token, data } = response;
                 console.log("Inicio de sesion exitoso");
                 dispatchUser({
                     type:"SET_USER",
@@ -62,11 +68,10 @@ function FormLogin() {
                         token,
                     }
                 })
-            }    
-                console.log("iniciar sesion con exito:");
                 resetForm();
                 resetErrorForm();
                 navigate("/");
+            }    
               } catch (error) {
                 console.log(error.message);
                 resetForm();

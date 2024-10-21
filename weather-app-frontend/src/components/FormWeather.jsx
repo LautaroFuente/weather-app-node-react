@@ -22,6 +22,7 @@ function  FormWeather() {
 
     const [formErrorServer, setFormErrorServer] = useState("");
     const [weather, setWeather] = useState(null);
+    const [lastCountry, setLastCountry] = useState("");
 
     const {
         form,
@@ -33,7 +34,6 @@ function  FormWeather() {
     } = useForm(initialForm);
 
     const updateSearchsForUser = async (city_name) => {
-      let date = new Date();
       try {
         const data = await fetchGeneric(
             urlUpdateSearchUser,
@@ -42,7 +42,7 @@ function  FormWeather() {
               "Content-Type": "application/json",
               Authorization: `Bearer ${token}`,
             },
-            JSON.stringify({user_id:id, city_name, search_time:date})
+            JSON.stringify({user_id:id, city_name})
           );
   
           if (data == null) {
@@ -97,6 +97,7 @@ function  FormWeather() {
                   updateSearchsForUser(data.name); 
                 } 
                 setWeather(data);
+                setLastCountry(form.country);
                 resetForm();
                 resetErrorForm();
               } catch (error) {
@@ -133,7 +134,7 @@ function  FormWeather() {
             </div>
         </form>
         {formErrorServer && <ErrorMessage message={formErrorServer}></ErrorMessage>}
-        <ViewWeather weather={weather} />
+        <ViewWeather weather={weather} country={lastCountry} />
     </>
      );
 }

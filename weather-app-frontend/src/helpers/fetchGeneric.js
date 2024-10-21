@@ -15,6 +15,10 @@ export const fetchGeneric = async (url, method = "GET", headers = {}, body = "" 
                 data = "Error";
                 return data;
             }
+            if((response.status == 404) || (response.status == 401)) {
+                let data = await response.json();
+                return data;
+            }
             return data;
         }
         data = await response.json();

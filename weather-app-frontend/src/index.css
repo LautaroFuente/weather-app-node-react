@@ -27,13 +27,50 @@ nav, footer{
   background-color: #d81414;
 }
 
+.container-history{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.container-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-image img{
+  width: 100%;
+  height: auto;
+  min-width: 250px;
+  min-height: 250px;
+  max-width: 900px;
+  max-height: 900px;
+}
+
+.container-one-history{
+  padding: 0.5rem;
+  margin: 1rem;
+  border-bottom: solid 2px #333333;
+}
+
+.error-message{
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #d81414;
+  color: #fdfdfd;
+  text-align: center;
+}
+
 .no-session{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-h1,h3{
+h1,h3,h4{
   text-align: center;
 }
 
