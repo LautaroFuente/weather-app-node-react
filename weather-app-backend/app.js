@@ -7,16 +7,16 @@ import authRoutes from "./routes/authRoutes.js";
 import cityTopRoutes from "./routes/cityTopRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import weatherRoutes from "./routes/weatherRoutes.js";
-import searchRoutes from "./routes/searchRoutes.js"
+import searchRoutes from "./routes/searchRoutes.js";
 
-const __dirname = path.resolve();
+// Solo en local sin docker const __dirname = path.resolve();
 const app = express();
 
 app.use(cors());
 app.use(helmet());
 app.use(morgan("dev"));
 
-app.use(express.static(path.join(__dirname, "../weather-app-frontend/dist")));
+// Solo en local sin docker app.use(express.static(path.join(__dirname, "../weather-app-frontend/dist")));
 
 app.use(express.json());
 
@@ -26,12 +26,12 @@ app.use("/api/auth", authRoutes);
 app.use("/api/city", cityTopRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/weather", weatherRoutes);
-app.use("/api/search", searchRoutes)
+app.use("/api/search", searchRoutes);
 
-app.get("*", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "../weather-app-frontend/dist", "index.html")
-  );
-});
+// Solo en local sin docker app.get("*", (req, res) => {
+//  res.sendFile(
+//    path.join(__dirname, "../weather-app-frontend/dist", "index.html")
+//  );
+//});
 
 export default app;
