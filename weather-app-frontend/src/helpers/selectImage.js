@@ -1,49 +1,34 @@
+import CieloDespejado from "../img/CieloDespejado.png";
+import ConNiebla from "../img/ConNiebla.png";
+import Desconocido from "../img/Desconocido.png";
+import Lluvioso from "../img/Lluvioso.png";
+import Nevando from "../img/Nevando.png";
+import ParcialmenteNublado from "../img/ParcialmenteNublado.png";
+import Tormenta from "../img/Tormenta.png";
+
 export const selectImage = (description) => {
-    switch (description) {
-        case "Cielo claro":
-            return;
+  switch (description) {
+    case "Cielo Despejado":
+      return CieloDespejado;
 
-        case "Pocas nubes":
-            return;
+    case "Parcialmente Nublado":
+      return ParcialmenteNublado;
 
-        case "Nubes dispersas":
-            return;
+    case "Con Niebla":
+      return ConNiebla;
 
-        case "Nubes fragmentadas":
-            return;
+    case "Lluvioso":
+      return Lluvioso;
 
-        case "Nubes cubiertas":
-            return;
+    case "Nevando":
+      return Nevando;
 
-        case "Lluvias débiles":
-            return;
+    case "Tormenta":
+      return Tormenta;
 
-        case "Lluvia":
-            return;
-
-        case "Tormenta eléctrica":
-            return;
-
-        case "Nieve":
-            return;
-
-        case "Niebla":
-            return;
-
-        default:
-            break;
-    }
-}
-/**
- * Clear sky (Cielo claro)
-Few clouds (Pocas nubes)
-Scattered clouds (Nubes dispersas)
-Broken clouds (Nubes fragmentadas)
-Overcast clouds (Nubes cubiertas)
-Shower rain (Lluvias débiles)
-Rain (Lluvia)
-Thunderstorm (Tormenta eléctrica)
-Snow (Nieve)
-Mist (Niebla)
-Fog (Niebla)
- */
+    case "Desconocido":
+      return Desconocido;
+    default:
+      return Desconocido;
+  }
+};

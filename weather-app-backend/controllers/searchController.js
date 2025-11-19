@@ -17,7 +17,7 @@ export const searchWeather = async (req, res) => {
   try {
     // 1. Geocodificación
     let data = await fetch(
-      `https://geocoding-api.open-meteo.com/v1/search?name=${encodedQuery}&count=1&language=es&format=json`
+      `https://geocoding-api.open-meteo.com/v1/search?name=${encodedQuery}&count=1&language=es`
     );
     if (!data.ok) {
       throw new Error(`Error en API de Geocodificación: ${data.status}`);
@@ -61,11 +61,9 @@ export const searchWeather = async (req, res) => {
     res.status(200).json(cleanedResponse);
   } catch (e) {
     console.error(e);
-    res
-      .status(500)
-      .json({
-        message: "Error interno al procesar la solicitud del clima.",
-        details: e.message,
-      });
+    res.status(500).json({
+      message: "Error interno al procesar la solicitud del clima.",
+      details: e.message,
+    });
   }
 };

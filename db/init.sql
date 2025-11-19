@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS weather_app_database;
 USE weather_app_database;
 
 -- Tabla de usuarios
-CREATE TABLE IF NOT EXISTS User (
+CREATE TABLE IF NOT EXISTS user (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) UNIQUE NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS User (
 );
 
 -- Tabla de búsquedas de clima
-CREATE TABLE IF NOT EXISTS Weather (
+CREATE TABLE IF NOT EXISTS weather (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     city_name VARCHAR(255) NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS Weather (
 );
 
 -- Tabla de ciudades más buscadas
-CREATE TABLE IF NOT EXISTS CityTop (
+CREATE TABLE IF NOT EXISTS citytop (
     city_name VARCHAR(255) PRIMARY KEY,
     search_count INT DEFAULT 0
 );
