@@ -5,7 +5,7 @@ const user = {
   getAllUsers: async () => {
     try {
       const [result] = await pool.query(
-        "SELECT id, username, email FROM User ORDER BY id;"
+        "SELECT id, username, email FROM user ORDER BY id;"
       );
       return result;
     } catch (error) {
@@ -16,7 +16,7 @@ const user = {
 
   getOneUser: async (email) => {
     try {
-      const query = "SELECT id, username, email FROM User WHERE email = ?;";
+      const query = "SELECT id, username, email FROM user WHERE email = ?;";
       const [result] = await pool.execute(query, [email]);
       return result;
     } catch (error) {
@@ -27,7 +27,7 @@ const user = {
 
   getPasswordFromOneUser: async (email) => {
     try {
-      const query = "SELECT password FROM User WHERE email = ?;";
+      const query = "SELECT password FROM user WHERE email = ?;";
       const [result] = await pool.execute(query, [email]);
       return result;
     } catch (error) {
@@ -45,7 +45,7 @@ const user = {
 
     try {
       const query =
-        "INSERT INTO User (id, username, email, password) VALUES (0, ?, ?, ?);";
+        "INSERT INTO user (id, username, email, password) VALUES (0, ?, ?, ?);";
       const [result] = await pool.execute(query, [
         username,
         email,

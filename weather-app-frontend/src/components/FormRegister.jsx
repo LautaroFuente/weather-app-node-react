@@ -6,98 +6,126 @@ import { useNavigate } from "react-router";
 import { fetchGeneric } from "../helpers/fetchGeneric";
 
 const initialForm = {
-    username: "",
-    email: "",
-    password: "",
-}
+  username: "",
+  email: "",
+  password: "",
+};
 
 const urlRegister = "http://localhost:3000/api/user";
 
 function FormRegister() {
-    const {
-        form,
-        errorForm,
-        handleInputChange,
-        handleErrorForm,
-        resetForm,
-        resetErrorForm,
-    } = useForm(initialForm);
+  const {
+    form,
+    errorForm,
+    handleInputChange,
+    handleErrorForm,
+    resetForm,
+    resetErrorForm,
+  } = useForm(initialForm);
 
-    const [formErrorServer, setFormErrorServer] = useState("");
+  const [formErrorServer, setFormErrorServer] = useState("");
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      const result = userSchema.safeParse(form);
-      if(result.success){
-          try {
-              console.log(`Validacion correcta`);
-              const data = await fetchGeneric(
-                urlRegister,
-                "POST",
-                {
-                  "Content-Type": "application/json",
-                },
-                JSON.stringify(form)
-              );
-      
-              if (data == null) {
-                throw new Error("Error al registar");
-              }
-              if (data == "Error ya registrado") {
-                throw new Error("Error ya registrado");
-              }
-      
-              console.log("Agregado con exito:", data);
-              resetForm();
-              resetErrorForm();
-              navigate("/login");
-            } catch (error) {
-              console.error(error.message);
-              resetForm();
-              resetErrorForm();
-              if(error.message == "Error ya registrado") {
-                setFormErrorServer(error.message);
-              } else {
-                setFormErrorServer("Error con el servidor");
-              }
-            }            
-      }else{
-          console.log("Error de validacion");
-          const errors = result.error.errors;
-          errors.forEach((error) => {
-          handleErrorForm(error.path, error.message);
-          });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const result = userSchema.safeParse(form);
+    if (result.success) {
+      try {
+        console.log(`Validacion correcta`);
+        const data = await fetchGeneric(
+          urlRegister,
+          "POST",
+          {
+            "Content-Type": "application/json",
+          },
+          JSON.stringify(form)
+        );
+
+        if (data == null) {
+          throw new Error("Error al registar");
+        }
+        if (data == "Error") {
+          throw new Error("Error ya registrado");
+        }
+
+        console.log("Agregado con exito:", data);
+        resetForm();
+        resetErrorForm();
+        navigate("/login");
+      } catch (error) {
+        console.error(error.message);
+        resetForm();
+        resetErrorForm();
+        if (error.message == "Error ya registrado") {
+          setFormErrorServer(error.message);
+        } else {
+          setFormErrorServer("Error con el servidor");
+        }
       }
-
+    } else {
+      console.log("Error de validacion");
+      const errors = result.error.errors;
+      errors.forEach((error) => {
+        handleErrorForm(error.path, error.message);
+      });
     }
+  };
 
-    return ( 
-        <>
-            <form className="form form-register" onSubmit={handleSubmit}>
-                <div className="form-row">
-                  <label htmlFor="username">Nombre de usuario</label>
-                  <input type="text" value={form.username} onChange={handleInputChange} name="username" id="username" required/>
-                </div>
-                {errorForm.username && <ErrorMessage message={errorForm.username}></ErrorMessage>}
-                <div className="form-row">
-                  <label htmlFor="email">Email</label>
-                  <input type="text" value={form.email} onChange={handleInputChange} name="email" id="email" required/>
-                </div>
-                {errorForm.email && <ErrorMessage message={errorForm.email}></ErrorMessage>}
-                <div className="form-row">
-                  <label htmlFor="password">Contraseña</label>
-                  <input type="password" value={form.password} onChange={handleInputChange} name="password" id="password" required/>
-                </div>
-                {errorForm.password && <ErrorMessage message={errorForm.password}></ErrorMessage>}
-                <div className="form-row">
-                  <button type="submit">Registrarse</button>
-                </div>
-            </form>
-            {formErrorServer && <ErrorMessage message={formErrorServer}></ErrorMessage>}
-        </>
-     );
+  return (
+    <>
+      <form className="form form-register" onSubmit={handleSubmit}>
+        <div className="form-row">
+          <label htmlFor="username">Nombre de usuario</label>
+          <input
+            type="text"
+            value={form.username}
+            onChange={handleInputChange}
+            name="username"
+            id="username"
+            required
+          />
+        </div>
+        {errorForm.username && (
+          <ErrorMessage message={errorForm.username}></ErrorMessage>
+        )}
+        <div className="form-row">
+          <label htmlFor="email">Email</label>
+          <input
+            type="text"
+            value={form.email}
+            onChange={handleInputChange}
+            name="email"
+            id="email"
+            required
+          />
+        </div>
+        {errorForm.email && (
+          <ErrorMessage message={errorForm.email}></ErrorMessage>
+        )}
+        <div className="form-row">
+          <label htmlFor="password">Contraseña</label>
+          <input
+            type="password"
+            value={form.password}
+            onChange={handleInputChange}
+            name="password"
+            id="password"
+            required
+          />
+        </div>
+        {errorForm.password && (
+          <ErrorMessage message={errorForm.password}></ErrorMessage>
+        )}
+        <div className="form-row">
+          <button type="submit">Registrarse</button>
+        </div>
+      </form>
+      {formErrorServer && (
+        <ErrorMessage message={formErrorServer}></ErrorMessage>
+      )}
+    </>
+  );
 }
 
 export default FormRegister;

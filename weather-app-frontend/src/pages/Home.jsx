@@ -21,10 +21,6 @@ function Home() {
 
 export default Home;
 /**
--Actualizar ciudades buscadas error
--Iniciar sesion
--Registrarse
--Top ciudades
--Historial busqueda
--Actualizar historial
+-Error letras raras en ciudades
+-Si no se encuentra una ciudad que no de error
  */

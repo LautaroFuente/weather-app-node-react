@@ -4,7 +4,7 @@ const weather = {
   getWeatherFromOneUser: async (email) => {
     try {
       const query =
-        "SELECT w.id, u.username, w.city_name, w.search_time FROM Weather w INNER JOIN User u ON(w.user_id = u.id) WHERE u.email = ?;";
+        "SELECT w.id, u.username, w.city_name, w.search_time FROM weather w INNER JOIN user u ON(w.user_id = u.id) WHERE u.email = ?;";
       const [result] = await pool.execute(query, [email]);
       return result;
     } catch (error) {

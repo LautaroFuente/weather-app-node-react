@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS weather (
     user_id INT,
     city_name VARCHAR(255) NOT NULL,
     search_time DATETIME NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE SET NULL
+    FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE SET NULL
 );
 
 -- Tabla de ciudades más buscadas
