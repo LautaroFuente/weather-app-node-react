@@ -94,6 +94,10 @@ function FormWeather() {
         if (data == null) {
           throw new Error("Error al realizar la busqueda");
         }
+        if (!data.ok) {
+          throw new Error("No se encontro resultados");
+        }
+
         updateCityTop(data.location);
         if (token) {
           updateSearchsForUser(data.location);
@@ -106,7 +110,7 @@ function FormWeather() {
         console.error(error.message);
         resetForm();
         resetErrorForm();
-        setFormErrorServer("Error con el servidor");
+        setFormErrorServer(error.message);
       }
     } else {
       console.log("Error de validacion");
@@ -155,7 +159,9 @@ function FormWeather() {
       {formErrorServer && (
         <ErrorMessage message={formErrorServer}></ErrorMessage>
       )}
-      <ViewWeather weather={weather} country={lastCountry} />
+      {weather != null && (
+        <ViewWeather weather={weather} country={lastCountry} />
+      )}
     </>
   );
 }
