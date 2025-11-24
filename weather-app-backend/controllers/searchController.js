@@ -3,6 +3,17 @@ export const searchWeather = async (req, res) => {
   const query = `${city}, ${country}`;
   const encodedQuery = encodeURIComponent(query);
 
+  const getWeatherDescription = (code) => {
+    // Implementación simple de mapeo del código WMO
+    if (code === 0) return "Cielo Despejado";
+    if (code >= 1 && code <= 3) return "Parcialmente Nublado";
+    if (code >= 45 && code <= 48) return "Con Niebla";
+    if (code >= 51 && code <= 67) return "Lluvioso";
+    if (code >= 71 && code <= 75) return "Nevando";
+    if (code >= 95 && code <= 99) return "Tormenta";
+    return "Desconocido";
+  };
+
   try {
     // 1. Geocodificación
     let data = await fetch(
