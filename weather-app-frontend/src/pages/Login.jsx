@@ -7,8 +7,10 @@ function Login() {
   return (
     <>
       <Header />
-      <h1 className="login-page-title">Inicia sesión</h1>
-      <FormLogin />
+      <div className="main-content">
+        <h1 className="login-page-title">Inicia sesión</h1>
+        <FormLogin />
+      </div>
       <Footer />
     </>
   );

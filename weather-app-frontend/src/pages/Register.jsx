@@ -7,8 +7,10 @@ function Register() {
   return (
     <>
       <Header />
-      <h1 className="page-title">Registrate</h1>
-      <FormRegister />
+      <div className="main-content">
+        <h1 className="page-title">Registrate</h1>
+        <FormRegister />
+      </div>
       <Footer />
     </>
   );

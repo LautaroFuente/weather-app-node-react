@@ -7,7 +7,7 @@ function CityTop() {
   return (
     <>
       <Header />
-      <div className="citytop-container">
+      <div className="citytop-container main-content">
         <h1>Ciudades más buscadas</h1>
         <ViewTopCity />
       </div>

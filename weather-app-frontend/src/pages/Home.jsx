@@ -12,7 +12,7 @@ function Home() {
   return (
     <>
       <Header />
-      <div className="home-container">
+      <div className="home-container main-content">
         <h1>Busca el clima</h1>
         {token && <h3>Bienvenido: {username}</h3>}
         <FormWeather />

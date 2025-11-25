@@ -14,12 +14,12 @@ function History() {
     <>
       <Header />
       {token ? (
-        <div className="history-page">
+        <div className="history-page main-content">
           <h1>Tu historial de busqueda</h1>
           <ViewHistory />
         </div>
       ) : (
-        <div className="history-page">
+        <div className="history-page main-content">
           <h1 className="history-login-warning">Debes iniciar sesion</h1>
           <NavLink to="/login"></NavLink>
         </div>
