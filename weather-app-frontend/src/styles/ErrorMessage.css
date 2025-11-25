@@ -1,0 +1,22 @@
+/* === ERROR MESSAGE === */
+.error-message {
+  background-color: #3a0d0d;
+  color: #ffb3b3;
+  border: 1px solid #5b1a1a;
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  width: 100%;
+  text-align: left;
+  animation: fadeError 0.3s ease;
+}
+
+@keyframes fadeError {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

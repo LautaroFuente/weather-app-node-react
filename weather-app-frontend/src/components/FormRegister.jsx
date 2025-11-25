@@ -4,6 +4,7 @@ import ErrorMessage from "./ErrorMessage";
 import { userSchema } from "../schemas/userSchema";
 import { useNavigate } from "react-router";
 import { fetchGeneric } from "../helpers/fetchGeneric";
+import "../styles/FormRegister.css";
 
 const initialForm = {
   username: "",
@@ -74,6 +75,8 @@ function FormRegister() {
 
   return (
     <>
+      {formErrorServer && <ErrorMessage message={formErrorServer} />}
+
       <form className="form form-register" onSubmit={handleSubmit}>
         <div className="form-row">
           <label htmlFor="username">Nombre de usuario</label>
@@ -86,9 +89,8 @@ function FormRegister() {
             required
           />
         </div>
-        {errorForm.username && (
-          <ErrorMessage message={errorForm.username}></ErrorMessage>
-        )}
+        {errorForm.username && <ErrorMessage message={errorForm.username} />}
+
         <div className="form-row">
           <label htmlFor="email">Email</label>
           <input
@@ -100,9 +102,8 @@ function FormRegister() {
             required
           />
         </div>
-        {errorForm.email && (
-          <ErrorMessage message={errorForm.email}></ErrorMessage>
-        )}
+        {errorForm.email && <ErrorMessage message={errorForm.email} />}
+
         <div className="form-row">
           <label htmlFor="password">Contraseña</label>
           <input
@@ -114,16 +115,12 @@ function FormRegister() {
             required
           />
         </div>
-        {errorForm.password && (
-          <ErrorMessage message={errorForm.password}></ErrorMessage>
-        )}
+        {errorForm.password && <ErrorMessage message={errorForm.password} />}
+
         <div className="form-row">
           <button type="submit">Registrarse</button>
         </div>
       </form>
-      {formErrorServer && (
-        <ErrorMessage message={formErrorServer}></ErrorMessage>
-      )}
     </>
   );
 }

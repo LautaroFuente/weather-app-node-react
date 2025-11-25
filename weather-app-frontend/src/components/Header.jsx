@@ -1,33 +1,43 @@
-import { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
-import { UserContext } from "../contexts/UserContext.jsx"
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import { UserContext } from "../contexts/UserContext.jsx";
+import "../styles/Header.css";
 
 function Header() {
+  const { stateUser, dispatchUser } = useContext(UserContext) || {};
+  const { token } = stateUser || {};
 
-    const { stateUser, dispatchUser } = useContext(UserContext) || {};
-    const { token } = stateUser || {};
+  const closeSession = () => {
+    dispatchUser({ type: "RESET" });
+  };
 
-    const closeSession = () => {
-        dispatchUser({ type: "RESET"});
-    }
-
-    return ( 
-        <nav>
-            <ul className='menu'>
-                <li><NavLink to="/">Buscar clima</NavLink></li>
-                <li><NavLink to="/history">Historial</NavLink></li>
-                <li><NavLink to="/city-top">Mas buscadas</NavLink></li>
-            </ul>
-            <div className='btn-session'>
-                {token ? <button className="btn-close-session" onClick={closeSession}>Cerrar Sesion</button> 
-                :<div className='no-session'>
-                    <NavLink to="/register">Registrarse</NavLink>
-                    <NavLink to="/login">Iniciar Sesion</NavLink>
-                </div>}
-            </div>
-        </nav>
-  
-     );
+  return (
+    <nav>
+      <ul className="menu">
+        <li>
+          <NavLink to="/">Buscar clima</NavLink>
+        </li>
+        <li>
+          <NavLink to="/history">Historial</NavLink>
+        </li>
+        <li>
+          <NavLink to="/city-top">Mas buscadas</NavLink>
+        </li>
+      </ul>
+      <div className="btn-session">
+        {token ? (
+          <button className="btn-close-session" onClick={closeSession}>
+            Cerrar Sesion
+          </button>
+        ) : (
+          <div className="no-session">
+            <NavLink to="/register">Registrarse</NavLink>
+            <NavLink to="/login">Iniciar Sesion</NavLink>
+          </div>
+        )}
+      </div>
+    </nav>
+  );
 }
 
 export default Header;

@@ -1,105 +1,49 @@
-nav, footer{
-  background-color: #007BFF;
-  color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* ======== GLOBAL DARK THEME ======== */
+
+:root {
+  --bg-main: #121212;
+  --bg-card: #1e1e1e;
+  --border-soft: #2a2a2a;
+
+  --text-primary: #eaeaea;
+  --text-secondary: #b6b6b6;
+
+  --accent: #4fc3f7;
+  --accent-hover: #81d4fa;
+
+  --error: #ef5350;
+  --success: #66bb6a;
+
+  font-family: "Inter", sans-serif;
 }
 
-.menu{
-  margin: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+body {
+  margin: 0;
+  background: var(--bg-main);
+  color: var(--text-primary);
 }
 
-.btn-session button, .btn-session NavLink, .btn-close-session{
-  padding: 1rem;
-  margin: 1rem;
-  border: solid 2px #ffffff;
-  border-radius: 4px;
-  background-color: #007BFF;
-  color: #ffffff;
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
 }
 
-.btn-close-session{
-  background-color: #d81414;
+a {
+  color: var(--text-primary);
+  text-decoration: none;
 }
 
-.container-history{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem;
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
 
-.container-image{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container-image img{
-  width: 100%;
-  height: auto;
-  min-width: 250px;
-  min-height: 250px;
-  max-width: 900px;
-  max-height: 900px;
-}
-
-.container-one-history{
-  padding: 0.5rem;
-  margin: 1rem;
-  border-bottom: solid 2px #333333;
-}
-
-.error-message{
-  width: 100%;
-  padding: 1rem;
-  margin: 1rem;
-  background-color: #d81414;
-  color: #fdfdfd;
-  text-align: center;
-}
-
-.no-session{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-h1,h3,h4{
-  text-align: center;
-}
-
-.form{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-}
-
-.form-row{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.form-search-weather{
-  border: solid 2px #007BFF;
-}
-
-button[type="submit"]{
-  color: #ffffff;
-  border: solid 2px #d4912b;
-  border-radius: 4px;
-  background-color: #FFA726;
-}
-
-.form-login, .form-register{
-  background-color: #E0F7FA;
-  color: #333333;
+ul {
+  list-style: none;
+  padding: 0;
 }

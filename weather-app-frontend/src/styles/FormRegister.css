@@ -1,0 +1,64 @@
+.form-register {
+  width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #1e1e1e;
+  border: 1px solid #2d2d2d;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.form-register .form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.form-register label {
+  margin-bottom: 0.5rem;
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+.form-register input {
+  padding: 0.7rem;
+  background: #121212;
+  color: #ffffff;
+  border: 1px solid #333;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.form-register input:focus {
+  border-color: #4c8df6;
+  box-shadow: 0 0 6px rgba(76, 141, 246, 0.5);
+}
+
+.form-register button {
+  width: 100%;
+  padding: 0.8rem;
+  background: #4c8df6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.form-register button:hover {
+  background: #3a74d4;
+}
+
+/* Mensajes de error */
+.error-message {
+  background: #8b1e1e;
+  padding: 0.7rem;
+  border-radius: 8px;
+  color: #f8dada;
+  border: 1px solid #a74242;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}

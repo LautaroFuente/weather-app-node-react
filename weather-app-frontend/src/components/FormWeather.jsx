@@ -5,6 +5,7 @@ import { citySearchSchema } from "../schemas/citySearchSchema";
 import ViewWeather from "../components/ViewWeather";
 import { fetchGeneric } from "../helpers/fetchGeneric";
 import { UserContext } from "../contexts/UserContext";
+import "../styles/FormWeather.css";
 
 const initialForm = {
   city: "",

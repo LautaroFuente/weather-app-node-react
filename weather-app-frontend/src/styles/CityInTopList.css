@@ -1,0 +1,30 @@
+/* ===== COMPONENT: CITY ITEM IN TOP LIST ===== */
+
+.citytop-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #181818;
+  border: 1px solid var(--border-soft);
+
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+
+  transition: 0.2s ease;
+}
+
+.citytop-item:hover {
+  background: #202020;
+  border-color: var(--accent);
+}
+
+.citytop-name {
+  font-size: 1.1rem;
+}
+
+.citytop-count {
+  color: var(--accent);
+  font-weight: bold;
+}

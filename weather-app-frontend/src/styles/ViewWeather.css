@@ -1,0 +1,29 @@
+.view-weather {
+  text-align: center;
+  color: #e2e2e2;
+  margin-top: 20px;
+}
+
+.weather-card {
+  margin: auto;
+  max-width: 450px;
+  background: #16181c;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #2b2e33;
+}
+
+.container-image img {
+  width: 150px;
+  height: 150px;
+}
+
+.description,
+.temp,
+.minmax {
+  margin-top: 10px;
+}
+
+.weather-empty {
+  opacity: 0.7;
+}

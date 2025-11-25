@@ -1,0 +1,25 @@
+.history-page {
+  min-height: calc(100vh - 120px);
+  padding: 40px 20px;
+  color: #eaeaea;
+  background-color: #121212;
+}
+
+.history-page h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.history-login-warning {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.history-login-warning a {
+  color: #7dc1ff;
+  text-decoration: underline;
+}

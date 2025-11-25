@@ -1,0 +1,56 @@
+/* ===== HEADER ===== */
+
+nav {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-soft);
+  padding: 15px 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu {
+  display: flex;
+  gap: 25px;
+}
+
+.menu li a {
+  font-size: 1rem;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.menu li a:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+.btn-session {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-close-session {
+  background: var(--error);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.btn-close-session:hover {
+  background: #d84343;
+}
+
+.no-session a {
+  margin-right: 15px;
+  color: var(--accent);
+  transition: 0.2s;
+}
+
+.no-session a:hover {
+  color: var(--accent-hover);
+}

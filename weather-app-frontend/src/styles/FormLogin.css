@@ -1,0 +1,59 @@
+/* === FORM LOGIN === */
+
+.form-login {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #1e1e1e;
+  border: 1px solid #2c2c2c;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.form-login .form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+.form-login label {
+  color: #d0d0d0;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.form-login input {
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background-color: #141414;
+  color: #ffffff;
+  transition: 0.2s ease;
+}
+
+.form-login input:focus {
+  outline: none;
+  border-color: #6ab0ff;
+  box-shadow: 0 0 6px rgba(106, 176, 255, 0.4);
+}
+
+.form-login button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #357aff;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.form-login button:hover {
+  background-color: #2f6fe0;
+}
+
+.form-login button:active {
+  transform: scale(0.98);
+}

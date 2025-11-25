@@ -1,0 +1,27 @@
+/* ===== COMPONENT: TOP CITY LIST ===== */
+
+.topcity-wrapper {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid var(--border-soft);
+
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.topcity-empty {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  padding: 20px;
+  border-radius: 10px;
+  color: var(--text-secondary);
+}
+
+.topcity-error {
+  margin-top: 10px;
+  color: var(--error);
+  font-size: 0.95rem;
+  text-align: center;
+  font-weight: 500;
+}

@@ -1,0 +1,55 @@
+/* ===== FORM WEATHER ===== */
+
+.form-search-weather {
+  background: var(--bg-card);
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid var(--border-soft);
+
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-row label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+
+.form-row input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-soft);
+  background: #181818;
+  color: var(--text-primary);
+}
+
+.form-row input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.form-row button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: black;
+  font-weight: bold;
+  transition: 0.25s;
+}
+
+.form-row button:hover {
+  background: var(--accent-hover);
+}
